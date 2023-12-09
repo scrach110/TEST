@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+        <script>
+          const listaIntegrantes  = async () => {
+            try{
+                const response = await axios.get('http://localhost:8080/familia/integrantes/listar');
+                console.log(response.data);
+                const integrantes = response.data;
+                i1 = integrantes[0];
+                console.log(i1.id);
+            } catch (error){
+                console.error(error);
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <br>Listar Integrantes<br/>
+
+        <table id="tbl1" border="1">
+            <thead>
+              <tr>
+                <th>DNI</th>
+                <th>Puntos de Honor</th>
+                <th>Armas</th>
+                <th>Titulos</th>
+                <th>Nombre</th>
+                <th>Tiene Cargo Politico</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button onclick="listaIntegrantes()">Listar</button>
+
+    </body>
+</html>
